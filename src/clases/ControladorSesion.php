@@ -1,6 +1,7 @@
 <?php
 
 require_once 'clases/RepositorioUsuario.php';
+require_once 'clases/RepositorioGastos.php';
 require_once 'clases/Usuario.php';
 
 class ControladorSesion
@@ -78,12 +79,6 @@ class ControladorSesion
         $repo = new RepositorioUsuario();
         return $repo->eliminar($usuario);
 
-        // O bien:
-        // if ($repo->eliminar($usuario)) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
     }
 
     /**
@@ -114,5 +109,24 @@ class ControladorSesion
         }
     }
 
+    function cargarGasto($monto,$categoria,$fecha,$descripcion){
+        session_start();
+        if (isset($_SESSION['usuario'])) 
+        {
+            $usuario = unserialize($_SESSION['usuario']);
+            $id_usuario= $usuario->getId();
+            $repo = new RepositorioGastos();
+            $gasto = new Gasto($categoria,$id_usuario,$monto,$descripcion,$fecha);
+            $id = $repo->save($gasto);
+            if ($id === false) {
+                // No se pudo guardar
+                return [ false, "Error al guardar el gasto" ];
+            } else {
+                $gasto->setId($id);
+                return [ true, "Gasto guardado correctamente" ];
+                 }
+    }
+
+ }
 }
 
