@@ -37,6 +37,7 @@ if (isset($_SESSION['usuario'])) {
         <p><a href="datos_modificar.php">Modificar datos de mi usuario</a></p>
         <p><a href="confirmar_delete.php">Eliminar mi usuario</a></p>
         <p><a href="logout.php">Cerrar sesión</a></p>
+        <p><a href="mostrar_datos.php">Mostra gastos</a></p>
       </div>
     </body>
 </html>
