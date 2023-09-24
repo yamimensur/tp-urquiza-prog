@@ -1,10 +1,10 @@
 <?php
-require_once 'clases/Database.php';
-require_once 'clases/DataDisplay.php';
+require_once 'clases/RepositorioMostrarDatos.php';
+require_once 'clases/ImprimirDatos.php';
 
 
-$db = new Database();
+$bd = new RepositorioMostrarDatos();
 
-$dataDisplay = new DataDisplay($db);
+$mostrar_datos = new ImprimirDatos($bd);
 
-$dataDisplay->displayTable('gastos');
+$mostrar_datos->mostrarTabla('gastos');
