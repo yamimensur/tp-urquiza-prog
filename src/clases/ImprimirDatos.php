@@ -16,13 +16,13 @@ class ImprimirDatos {
         if ($resultado) {
             //Verficamos que se devuelva al menos una row utilizando la propiedad num_rows de mysqli
             if ($resultado->num_rows > 0) {
-                echo "<table>";
+                echo "<table class='table table-dark '>";
 
                 // usa los nombres de las columnas
                 $row = $resultado->fetch_assoc();
                 echo "<tr>";
                 foreach ($row as $column => $value) {
-                    echo "<th>$column</th>";
+                    echo "<th scope='col'>$column</th>";
                 }
                 echo "</tr>";
 
