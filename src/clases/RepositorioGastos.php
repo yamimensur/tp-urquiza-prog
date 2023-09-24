@@ -48,7 +48,7 @@ class RepositorioGastos
         $descripcion = $gasto->descripcion;
         $fecha=$gasto->fecha;
 
-        $query->bind_param("iiidss",$id,$categoria,$id_usuario,$monto,$descripcion,$fecha );
+        $query->bind_param("ddddss", $id, $categoria, $id_usuario, $monto, $descripcion, $fecha );
 
         if ($query->execute())  {
             return self::$conexion->insert_id;
