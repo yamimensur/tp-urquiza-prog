@@ -47,6 +47,7 @@ class RepositorioGastos
         $monto = $gasto->monto;
         $descripcion = $gasto->descripcion;
         $fecha=$gasto->fecha;
+        // se asocia el id a la query
 
         $query->bind_param("ddddss", $id, $categoria, $id_usuario, $monto, $descripcion, $fecha );
 
@@ -63,9 +64,14 @@ class RepositorioGastos
         $query = self::$conexion->prepare($q);
 
         $id = $gasto->getId();
+        
+        // se asocia el id a la query
 
         $query->bind_param("d", $id);
 
+        //devuelve true si se elimina el registro y false si la consulta falla, por ahora no hacemos
+        //nada mas
+        
         return $query->execute();
     }
 
