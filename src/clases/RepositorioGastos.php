@@ -57,4 +57,16 @@ class RepositorioGastos
         }
     }
 
+    public function eliminar(Gasto $gasto)
+    {
+        $q = "DELETE FROM gastos WHERE id = ?";
+        $query = self::$conexion->prepare($q);
+
+        $id = $gasto->getId();
+
+        $query->bind_param("d", $id);
+
+        return $query->execute();
+    }
+
 }

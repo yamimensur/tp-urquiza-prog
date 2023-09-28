@@ -3,6 +3,8 @@
 require_once 'clases/RepositorioUsuario.php';
 require_once 'clases/RepositorioGastos.php';
 require_once 'clases/Usuario.php';
+require_once 'clases/Gasto.php';
+
 
 class ControladorSesion
 {
@@ -81,6 +83,8 @@ class ControladorSesion
 
     }
 
+  
+
     /**
      * Solicita que se actualicen en la BD los datos del usuario, y si tiene
      * éxito, actualiza también los datos del usuario almacenados en la sesión.
@@ -126,7 +130,18 @@ class ControladorSesion
                 return [ true, "Gasto guardado correctamente" ];
                  }
     }
+    
+ }
 
+ public function eliminarGasto($gastoId)
+ {
+     $repo = new RepositorioGastos();
+     
+     // creo un objeto Gasto con el id enviado por form
+     $gasto = new Gasto();
+     $gasto->setId($gastoId);
+
+     return $repo->eliminar($gasto);
  }
 }
 
