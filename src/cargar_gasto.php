@@ -21,6 +21,7 @@ if (isset($_SESSION['usuario'])) {
         <link rel="stylesheet" href="bootstrap.min.css">
     </head>
     <body class="container">
+    <?php include('navbar.php') ?>
       <div class="jumbotron text-center">
       <h1>Gastos del hogar</h1>
       </div>

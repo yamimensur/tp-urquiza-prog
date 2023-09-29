@@ -17,7 +17,8 @@ $mostrar_datos = new ImprimirDatos($bd);
         <title>Mostrar Gastos</title>
         <link rel="stylesheet" href="bootstrap.min.css">
 </head>
-<body>
+<body class="container">
+<?php include('navbar.php') ?>
 <?php
             if (isset($_GET['mensaje'])) {
                 echo '<div id="mensaje" class="alert alert-primary text-center">

@@ -19,7 +19,7 @@ if (isset($_SESSION['usuario'])) {
     </head>
     <body class="container">
       <div class="jumbotron text-center">
-      <h1>Sistema bancario</h1>
+      <h1>Agenda de Gastos</h1>
       </div>
       <div class="text-center">
             <div id="mensaje" class="alert alert-danger text-center">
