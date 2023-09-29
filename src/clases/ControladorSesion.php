@@ -120,7 +120,7 @@ class ControladorSesion
             $usuario = unserialize($_SESSION['usuario']);
             $id_usuario= $usuario->getId();
             $repo = new RepositorioGastos();
-            $gasto = new Gasto($categoria,$id_usuario,$monto,$descripcion,$fecha);
+            $gasto = new Gasto($id=null,$categoria,$id_usuario,$monto,$descripcion,$fecha);
             $id = $repo->save($gasto);
             if ($id === false) {
                 // No se pudo guardar
