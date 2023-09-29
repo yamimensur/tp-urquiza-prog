@@ -18,13 +18,18 @@ $mostrar_datos = new ImprimirDatos($bd);
         <link rel="stylesheet" href="bootstrap.min.css">
 </head>
 <body>
-
+<?php
+            if (isset($_GET['mensaje'])) {
+                echo '<div id="mensaje" class="alert alert-primary text-center">
+                    <p>'.$_GET['mensaje'].'</p></div>';
+            }
+        ?>
 <div><?php $mostrar_datos->mostrarTabla('gastos');?></div>
 
 <form action="delete_gastos.php" method="post">
             <label for="gasto">Escriba el ID del gasto para <strong>eliminarlo</strong> : </label><br>
             <input name="gasto" class="form-control form-control-lg" placeholder="ID Gasto"><br>
-            <input type="submit" value="Eliminar usuario" class="btn btn-primary">
+            <input type="submit" value="Eliminar gasto" class="btn btn-primary">
             </form>
 </body>
 </html>

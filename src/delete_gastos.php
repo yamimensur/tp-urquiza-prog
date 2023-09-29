@@ -17,12 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $resultado = $cs->eliminarGasto($gastoId);
 
         if ($resultado) {            
-            echo "Se ha eliminado el gasto";
+            $redirigir = "mostrar_datos.php?mensaje=Gasto Eliminado";
         } else {            
-            echo "Error";
+            $redirigir = "mostrar_datos.php?mensaje=No se pudo eliminar el gasto por un error interno";
         }
     } else {
         // si esta vacio o no es correcto el dato enviado
-        echo "ID invalido";
+        $redirigir = "mostrar_datos.php?mensaje=ID Invalido";
     }
 }
+
+header("Location: $redirigir");
