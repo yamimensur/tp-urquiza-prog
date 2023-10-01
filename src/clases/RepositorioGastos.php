@@ -2,6 +2,7 @@
 
 require_once 'Gasto.php';
 require_once '.env.php';
+require_once 'Categoria.php';
 
 class RepositorioGastos
 {
@@ -49,6 +50,25 @@ class RepositorioGastos
         $fecha=$gasto->fecha;
 
         $query->bind_param("ddddss", $id, $categoria, $id_usuario, $monto, $descripcion, $fecha );
+
+        if ($query->execute())  {
+            return self::$conexion->insert_id;
+        } else {
+            return false;
+        }
+    }
+
+    public function saveCat(Categoria $cat)
+    {
+        $q = "INSERT INTO categorias (id_categoria,nombre_categoria) ";
+        $q.= "VALUES (?, ?)";
+        $query = self::$conexion->prepare($q);
+
+        $id=null;
+        $nombre = $cat->nombre_categoria;
+        
+
+        $query->bind_param("ds", $id, $nombre);
 
         if ($query->execute())  {
             return self::$conexion->insert_id;

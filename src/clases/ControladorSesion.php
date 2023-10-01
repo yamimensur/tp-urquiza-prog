@@ -3,6 +3,7 @@
 require_once 'clases/RepositorioUsuario.php';
 require_once 'clases/RepositorioGastos.php';
 require_once 'clases/Usuario.php';
+require_once 'clases/Categoria.php';
 
 class ControladorSesion
 {
@@ -109,7 +110,8 @@ class ControladorSesion
         }
     }
 
-    function cargarGasto($monto,$categoria,$fecha,$descripcion){
+    function cargarGasto($monto,$categoria,$fecha,$descripcion)
+    {
         session_start();
         if (isset($_SESSION['usuario'])) 
         {
@@ -125,8 +127,23 @@ class ControladorSesion
                 $gasto->setId($id);
                 return [ true, "Gasto guardado correctamente" ];
                  }
+        }
     }
 
- }
+    function agregarCat($nombre)
+    {
+            $repo = new RepositorioGastos();
+            $cat = new Categoria($nombre);
+            $id = $repo->saveCat($cat);
+            if ($id === false) {
+                // No se pudo guardar
+                return [ false, "Error al crear la categoria" ];
+            } else {
+                $cat->setId($id);
+                return [ true, "Categoria creada correctamente" ];
+                 }
+    }
+
+
 }
 
