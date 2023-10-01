@@ -78,36 +78,18 @@ class RepositorioGastos
     }
 
    
-    public function eliminar(Usuario $usuario)
+    public function deleteCat($nombre)
     {
-        $q = "DELETE FROM usuarios WHERE id = ?";
+        $q = "DELETE FROM categorias WHERE nombre_categoria = ?";
         $query = self::$conexion->prepare($q);
+        $query->bind_param("s", $nombre);
 
-        $id = $usuario->getId();
-
-        $query->bind_param("d", $id);
-
-        return $query->execute();
+        if ($query->execute())  {
+            return true;
+        } else {
+            return false;
+        }
 
     } 
-
-    
-    public function actualizar(
-        string $nombre_usuario,
-        string $nombre,
-        string $apellido,
-        Usuario $usuario
-    ) {
-        $q = "UPDATE usuarios SET nombre_usuario = ?, nombre = ?, apellido = ? ";
-        $q.= " WHERE id = ?;";
-
-        $query = self::$conexion->prepare($q);
-
-        $id = $usuario->getId();
-
-        $query->bind_param("sssd", $nombre_usuario, $nombre, $apellido, $id);
-
-        return $query->execute();
-    }
 
 }

@@ -144,6 +144,16 @@ class ControladorSesion
                  }
     }
 
+    function eliminarCat($nombre)
+    {
+        $repo = new RepositorioGastos();
+         if($repo->deleteCat($nombre)){
+            return [ true, "Categoria eliminada correctamente" ];
+         }else{
+            return [ false, "Error al eliminar la categoria" ]; 
+         }
+
+    }
 
 }
 
