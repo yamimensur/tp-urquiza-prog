@@ -2,6 +2,7 @@
 
 require_once 'Gasto.php';
 require_once '.env.php';
+require_once 'Categoria.php';
 
 class RepositorioGastos
 {
@@ -64,15 +65,48 @@ class RepositorioGastos
         $query = self::$conexion->prepare($q);
 
         $id = $gasto->getId();
-        
+
         // se asocia el id a la query
 
         $query->bind_param("d", $id);
 
         //devuelve true si se elimina el registro y false si la consulta falla, por ahora no hacemos
         //nada mas
-        
+
         return $query->execute();
     }
+        
+       
+    public function saveCat(Categoria $cat)
+    {
+        $q = "INSERT INTO categorias (id_categoria,nombre_categoria) ";
+        $q.= "VALUES (?, ?)";
+        $query = self::$conexion->prepare($q);
+
+        $id=null;
+        $nombre = $cat->nombre_categoria;
+        $query->bind_param("ds", $id, $nombre);
+        if ($query->execute())  {
+            return self::$conexion->insert_id;
+        } else {
+            return false;
+        }
+    }
+
+   
+    public function deleteCat($nombre)
+    {
+        $q = "DELETE FROM categorias WHERE nombre_categoria = ?";
+        $query = self::$conexion->prepare($q);
+        $query->bind_param("s", $nombre);
+
+        if ($query->execute()) 
+        {
+            return true;
+        } else {
+            return false;
+        }
+
+    } 
 
 }

@@ -25,6 +25,12 @@ if (isset($_SESSION['usuario'])) {
       <div class="jumbotron text-center">
       <h1>Gastos del hogar</h1>
       </div>
+      <?php
+            if (isset($_GET['mensaje'])) {
+                echo '<div id="mensaje" class="alert alert-primary text-center">
+                    <p>'.$_GET['mensaje'].'</p></div>';
+            }
+        ?>
       <div class="text-center">
         <h3>Cargar nuevo gasto</h3>
         <form action="cargar.php" method="post">
@@ -35,8 +41,10 @@ if (isset($_SESSION['usuario'])) {
             <select name="categorias" class="form-control form-control-lg">
                <option value="1">Supermercado</option>
                <option value="2">Farmacia</option>
-               <option value="3">Ocio</option>
+               <option value="8">Ocio</option>
             </select><br>
+            <p><a href="agregar_cat.php">Agregá una nueva categoria</a></p>
+            <p><a href="eliminar_cat.php">Eliminá una categoria</a></p>
             <label for="fecha">Fecha</label>
             <input type="date" name="fecha" class="form-control form-control-lg" value=""><br>
             <label for="descripcion">Descripción</label>
