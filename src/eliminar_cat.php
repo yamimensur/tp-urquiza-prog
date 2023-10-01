@@ -1,4 +1,7 @@
 <?php
+require_once 'clases/Usuario.php';
+require_once 'clases/ControladorSesion.php';
+
 // Validamos que el usuario tenga sesión iniciada:
 session_start();
 if (isset($_SESSION['usuario'])) {
@@ -8,8 +11,8 @@ if (isset($_SESSION['usuario'])) {
     // Si no, redirigimos al login
     header('Location: index.php');
 }
-
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -19,19 +22,15 @@ if (isset($_SESSION['usuario'])) {
     </head>
     <body class="container">
       <div class="jumbotron text-center">
-      <h1>Agenda de Gastos</h1>
+      <h1>Gastos del hogar</h1>
       </div>
       <div class="text-center">
-            <div id="mensaje" class="alert alert-danger text-center">
-                    <p>Advertencia. Ud va a <strong>eliminar</strong> su usuario.
-                        Esta acción no se puede deshacer.</p>
-            </div>
-
-            <form action="delete.php" method="post">
-            <label for="usuario">Escriba su nombre de usuario para <strong>eliminar</strong> su cuenta: </label><br>
-            <input name="usuario" class="form-control form-control-lg" placeholder="Usuario"><br>
-            <input type="submit" value="Eliminar usuario" class="btn btn-primary">
-            </form>
+        <h3>Eliminar categoria</h3>
+        <form action="deleteCat.php" method="post">
+            <label for="nombre">Ingrese el nombre de la categoria que desea eliminar</label>
+            <input name="nombre" class="form-control form-control-lg" placeholder="Perfumeria"><br>
+            <input type="submit" value="eliminar" class="btn btn-primary">
+        </form>
       </div>
     </body>
 </html>

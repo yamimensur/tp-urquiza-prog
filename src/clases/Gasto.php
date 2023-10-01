@@ -9,7 +9,7 @@ class Gasto
     public $descripcion;
     public $fecha;
 
-    public function __construct($id_categoria,$id_usuario,$monto,$descripcion,$fecha,$id=null)
+    public function __construct($id=null, $id_categoria = null,$id_usuario = null,$monto = null,$descripcion = null,$fecha = null)
     {
         $this->id = $id;
         $this->id_categoria = $id_categoria;

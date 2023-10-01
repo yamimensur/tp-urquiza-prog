@@ -2,6 +2,7 @@
 
 require_once 'Gasto.php';
 require_once '.env.php';
+require_once 'Categoria.php';
 
 class RepositorioGastos
 {
@@ -47,6 +48,7 @@ class RepositorioGastos
         $monto = $gasto->monto;
         $descripcion = $gasto->descripcion;
         $fecha=$gasto->fecha;
+        // se asocia el id a la query
 
         $query->bind_param("ddddss", $id, $categoria, $id_usuario, $monto, $descripcion, $fecha );
 
@@ -57,37 +59,54 @@ class RepositorioGastos
         }
     }
 
-   
-    public function eliminar(Usuario $usuario)
+    public function eliminar(Gasto $gasto)
     {
-        $q = "DELETE FROM usuarios WHERE id = ?";
+        $q = "DELETE FROM gastos WHERE id = ?";
         $query = self::$conexion->prepare($q);
 
-        $id = $usuario->getId();
+        $id = $gasto->getId();
+
+        // se asocia el id a la query
 
         $query->bind_param("d", $id);
 
-        return $query->execute();
-
-    } 
-
-    
-    public function actualizar(
-        string $nombre_usuario,
-        string $nombre,
-        string $apellido,
-        Usuario $usuario
-    ) {
-        $q = "UPDATE usuarios SET nombre_usuario = ?, nombre = ?, apellido = ? ";
-        $q.= " WHERE id = ?;";
-
-        $query = self::$conexion->prepare($q);
-
-        $id = $usuario->getId();
-
-        $query->bind_param("sssd", $nombre_usuario, $nombre, $apellido, $id);
+        //devuelve true si se elimina el registro y false si la consulta falla, por ahora no hacemos
+        //nada mas
 
         return $query->execute();
     }
+        
+       
+    public function saveCat(Categoria $cat)
+    {
+        $q = "INSERT INTO categorias (id_categoria,nombre_categoria) ";
+        $q.= "VALUES (?, ?)";
+        $query = self::$conexion->prepare($q);
+
+        $id=null;
+        $nombre = $cat->nombre_categoria;
+        $query->bind_param("ds", $id, $nombre);
+        if ($query->execute())  {
+            return self::$conexion->insert_id;
+        } else {
+            return false;
+        }
+    }
+
+   
+    public function deleteCat($nombre)
+    {
+        $q = "DELETE FROM categorias WHERE nombre_categoria = ?";
+        $query = self::$conexion->prepare($q);
+        $query->bind_param("s", $nombre);
+
+        if ($query->execute()) 
+        {
+            return true;
+        } else {
+            return false;
+        }
+
+    } 
 
 }

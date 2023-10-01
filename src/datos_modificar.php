@@ -21,8 +21,9 @@ if (isset($_SESSION['usuario'])) {
         <link rel="stylesheet" href="bootstrap.min.css">
     </head>
     <body class="container">
+    <?php include('navbar.php') ?>
       <div class="jumbotron text-center">
-      <h1>Sistema bancario</h1>
+      <h1>Agenda de Gastos</h1>
       </div>
       <div class="text-center">
         <h3>Modificar datos de usuario</h3>

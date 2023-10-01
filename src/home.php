@@ -21,6 +21,7 @@ if (isset($_SESSION['usuario'])) {
         <link rel="stylesheet" href="bootstrap.min.css">
     </head>
     <body class="container">
+    <?php include('navbar.php') ?>
       <div class="jumbotron text-center">
       <h1>Gastos del hogar</h1>
       </div>
@@ -37,6 +38,7 @@ if (isset($_SESSION['usuario'])) {
         <p><a href="datos_modificar.php">Modificar datos de mi usuario</a></p>
         <p><a href="confirmar_delete.php">Eliminar mi usuario</a></p>
         <p><a href="logout.php">Cerrar sesión</a></p>
+        <p><a href="mostrar_datos.php">Mostra gastos</a></p>
       </div>
     </body>
 </html>
