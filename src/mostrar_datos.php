@@ -26,7 +26,7 @@ $mostrar_datos = new ImprimirDatos($bd);
             }
         ?>
 <div><?php $mostrar_datos->mostrarTabla('gastos');?></div>
-
+<!-- Vamos a enviar por metodo post el ID del gasto para poder eliminarlo. -->
 <form action="delete_gastos.php" method="post">
             <label for="gasto">Escriba el ID del gasto para <strong>eliminarlo</strong> : </label><br>
             <input name="gasto" class="form-control form-control-lg" placeholder="ID Gasto"><br>
