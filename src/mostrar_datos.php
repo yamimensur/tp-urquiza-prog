@@ -32,6 +32,13 @@ $mostrar_datos = new ImprimirDatos($bd);
             <input name="gasto" class="form-control form-control-lg" placeholder="ID Gasto"><br>
             <input type="submit" value="Eliminar gasto" class="btn btn-primary">
             </form>
+
+
+            <form action="filtrar_tabla.php" method="post">
+            <label for="filtro">Buscar por <strong>categorias</strong> : </label><br>
+            <input name="filtro" class="form-control form-control-lg" placeholder="Filtrar Gasto"><br>
+            <input type="submit" value="Filtrar Gasto" class="btn btn-primary">
+            </form>
 </body>
 </html>
 

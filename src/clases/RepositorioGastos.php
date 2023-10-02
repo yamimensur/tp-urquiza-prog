@@ -109,4 +109,25 @@ class RepositorioGastos
 
     } 
 
+    public function filtrar($filtro) {
+        $q = "select id_categoria from categorias where nombre_categoria like ?";
+        $query = self::$conexion->prepare($q);
+        $query->bind_param("s", $filtro);
+        $id=$query->execute();
+        return $id;
+    }
+
+    public function filtrarCat($filtro){ 
+        $id=$this->filtrar($filtro);
+        $q = "select * from gastos where id_categoria like ?";
+        $query = self::$conexion->prepare($q);
+        $query->bind_param("d", $id);
+        if ($query->execute()) 
+        {
+            return $query->get_result();
+        } else {
+            return false;
+        }
+        }
+
 }
