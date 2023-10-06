@@ -1,9 +1,9 @@
 <?php
-require_once 'clases/RepositorioMostrarDatos.php';
+
 require_once 'clases/ImprimirDatos.php';
 require_once 'clases/RepositorioGastos.php';
 
-$bd = new RepositorioMostrarDatos();
+$bd = new RepositorioGastos();
 
 $mostrar_datos = new ImprimirDatos($bd);
 ?>
