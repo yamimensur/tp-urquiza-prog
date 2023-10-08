@@ -34,6 +34,19 @@ class RepositorioGastos
         self::$conexion->set_charset('utf8mb4');
     }
 
+
+
+
+    public function eliminarGasto($gastoId)
+    {
+        $repo = new RepositorioGastos();
+        
+        // creo un objeto Gasto con el id enviado por form
+        $gasto = new Gasto();
+        $gasto->setId($gastoId);
+   
+        return $repo->eliminar($gasto);
+    }
     // Funcion para la consulta sql a la base de datos, y luego utilizamos la conexion para realizar la consulta
     public function query($sql)
     {

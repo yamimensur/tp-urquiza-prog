@@ -1,7 +1,7 @@
 <?php
-require_once 'clases/ControladorSesion.php';
+require_once 'clases/RepositorioGastos.php';
 
-$cs = new ControladorSesion();
+$cs = new RepositorioGastos();
 
 $gastoId = $_POST['gasto'];
 // Verificamos que gastoid no este vacio y sea numerico
