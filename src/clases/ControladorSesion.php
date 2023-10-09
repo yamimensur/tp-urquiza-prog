@@ -160,15 +160,6 @@ class ControladorSesion
     
  
 
- public function eliminarGasto($gastoId)
- {
-     $repo = new RepositorioGastos();
-     
-     // creo un objeto Gasto con el id enviado por form
-     $gasto = new Gasto();
-     $gasto->setId($gastoId);
 
-     return $repo->eliminar($gasto);
- }
 }
 

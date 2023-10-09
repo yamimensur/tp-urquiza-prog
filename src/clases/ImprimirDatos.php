@@ -1,17 +1,18 @@
 <?php
-require_once 'RepositorioMostrarDatos.php';
-class ImprimirDatos {
+require_once 'RepositorioGastos.php';
+
+class ImprimirDatos
+{
     private $bd;
 
-    public function __construct($bd) {
+    public function __construct($bd)
+    {
         $this->bd = $bd;
     }
 
-    public function mostrarTabla($nombreTabla) {
-        // Construye la consulta SQL para seleccionar todos los registros de la tabla especificada.
-        $sql = "SELECT * FROM $nombreTabla";
-        // Ejecuta la consulta en la base de datos.
-        $resultado = $this->bd->query($sql);
+    public function mostrarTabla($nombreTabla)
+    {
+        $resultado = $this->bd->consultarTabla($nombreTabla);
 
         if ($resultado) {
             //Verficamos que se devuelva al menos una row utilizando la propiedad num_rows de mysqli

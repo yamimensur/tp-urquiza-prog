@@ -3,6 +3,7 @@
 require_once 'Gasto.php';
 require_once '.env.php';
 require_once 'Categoria.php';
+require_once 'ImprimirDatos.php';
 
 class RepositorioGastos
 {
@@ -33,26 +34,58 @@ class RepositorioGastos
         self::$conexion->set_charset('utf8mb4');
     }
 
-   
 
+
+
+    public function eliminarGasto($gastoId)
+    {
+        $repo = new RepositorioGastos();
+        
+        // creo un objeto Gasto con el id enviado por form
+        $gasto = new Gasto();
+        $gasto->setId($gastoId);
    
+        return $repo->eliminar($gasto);
+    }
+    // Funcion para la consulta sql a la base de datos, y luego utilizamos la conexion para realizar la consulta
+    public function query($sql)
+    {
+        return self::$conexion->query($sql);
+    }
+
+    public function consultarTabla($nombreTabla)
+    {
+        $sql = "SELECT * FROM $nombreTabla";
+        $resultado = $this->query($sql);
+
+        return $resultado;
+    }
+
+    public function consultarInforme($nombreTabla)
+    {
+        $sql = "SELECT nombre_categoria, MAX(monto), MIN(monto), SUM(monto), ROUND(AVG(monto), 2) FROM gastos GROUP BY nombre_categoria";
+        $resultado = $this->query($sql);
+
+        return $resultado;
+    }
+
     public function save(Gasto $gasto)
     {
         $q = "INSERT INTO gastos (id,id_categoria,id_usuario,monto,descripcion,fecha) ";
-        $q.= "VALUES (?, ? , ? , ?, ?, ?)";
+        $q .= "VALUES (?, ? , ? , ?, ?, ?)";
         $query = self::$conexion->prepare($q);
 
-        $id=null;
+        $id = null;
         $categoria = $gasto->id_categoria;
         $id_usuario = $gasto->id_usuario;
         $monto = $gasto->monto;
         $descripcion = $gasto->descripcion;
-        $fecha=$gasto->fecha;
+        $fecha = $gasto->fecha;
         // se asocia el id a la query
 
-        $query->bind_param("ddddss", $id, $categoria, $id_usuario, $monto, $descripcion, $fecha );
+        $query->bind_param("ddddss", $id, $categoria, $id_usuario, $monto, $descripcion, $fecha);
 
-        if ($query->execute())  {
+        if ($query->execute()) {
             return self::$conexion->insert_id;
         } else {
             return false;
@@ -75,38 +108,59 @@ class RepositorioGastos
 
         return $query->execute();
     }
-        
-       
+
+
     public function saveCat(Categoria $cat)
     {
         $q = "INSERT INTO categorias (id_categoria,nombre_categoria) ";
-        $q.= "VALUES (?, ?)";
+        $q .= "VALUES (?, ?)";
         $query = self::$conexion->prepare($q);
 
-        $id=null;
+        $id = null;
         $nombre = $cat->nombre_categoria;
         $query->bind_param("ds", $id, $nombre);
-        if ($query->execute())  {
+        if ($query->execute()) {
             return self::$conexion->insert_id;
         } else {
             return false;
         }
     }
 
-   
+
     public function deleteCat($nombre)
     {
         $q = "DELETE FROM categorias WHERE nombre_categoria = ?";
         $query = self::$conexion->prepare($q);
         $query->bind_param("s", $nombre);
 
-        if ($query->execute()) 
-        {
+        if ($query->execute()) {
             return true;
         } else {
             return false;
         }
 
-    } 
+    }
+
+    public function filtrar($filtro)
+    {
+        $q = "select id_categoria from categorias where nombre_categoria like ?";
+        $query = self::$conexion->prepare($q);
+        $query->bind_param("s", $filtro);
+        $id = $query->execute();
+        return $id;
+    }
+
+    public function filtrarCat($filtro)
+    {
+        $id = $this->filtrar($filtro);
+        $q = "select * from gastos where id_categoria like ?";
+        $query = self::$conexion->prepare($q);
+        $query->bind_param("d", $id);
+        if ($query->execute()) {
+            return $query->get_result();
+        } else {
+            return false;
+        }
+    }
 
 }

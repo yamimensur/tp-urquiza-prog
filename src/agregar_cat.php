@@ -19,11 +19,11 @@ if (isset($_SESSION['usuario'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Bienvenido al sistema</title>
-    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
 </head>
 
 <body class="container">
-<?php include('navbar.php') ?>
+    <?php include('navbar.php') ?>
     <div class="jumbotron text-center">
         <h1>Gastos del hogar</h1>
     </div>

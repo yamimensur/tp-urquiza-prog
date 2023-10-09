@@ -17,21 +17,26 @@ $resultadosFiltrados = $repositorioGastos->filtrarCat($filtro);
 </head>
 <body class="container">
 <?php include('navbar.php') ?>
+<h2 class="display-3">Gastos filtrados por categoria:</h2>
 <?php
 
     if ($resultadosFiltrados) {
 
-        echo "<table class='table table-striped table-dark'>
-                <tr>
-                    <th>Fecha</th>
-                    <th>Descripcion del gasto</th>
-                </tr>";
+    echo "<table class='table table-striped table-dark'>
+        <tr>
+            <th>Fecha</th>
+            <th>Descripcion del gasto</th>
+            <th>Monto</th>
+            <th>Categoria</th>
+        </tr>";
 
-        while ($row = $resultadosFiltrados->fetch_assoc()) {
-            echo "<tr>
-                    <td>" . $row['fecha'] . "</td>
-                    <td>" . $row['descripcion'] . "</td>
-                  </tr>";
+while ($row = $resultadosFiltrados->fetch_assoc()) {
+    echo "<tr>
+            <td>" . $row['fecha'] . "</td>
+            <td>" . $row['descripcion'] . "</td>
+            <td>" . $row['monto'] . "</td>
+            <td>" . $row['nombre_categoria'] . "</td>
+        </tr>";
         }
 
         echo "</table>";
