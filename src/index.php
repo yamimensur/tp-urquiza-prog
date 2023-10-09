@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Bienvenido al sistema</title>
-        <link rel="stylesheet" href="bootstrap.min.css">
-    </head>
-    <body class="container">
-      <div class="jumbotron text-center">
-      <h1>Gastos del hogar</h1>
-      </div>    
-      <div class="text-center">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Bienvenido al sistema</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+</head>
+
+<body class="container">
+    <div class="jumbotron text-center">
+        <h1>Gastos del hogar</h1>
+    </div>
+    <div class="text-center">
         <h3>Login de usuario</h3>
         <?php
-            if (isset($_GET['mensaje'])) {
-                echo '<div id="mensaje" class="alert alert-primary text-center">
-                    <p>'.$_GET['mensaje'].'</p></div>';
-            }
+        if (isset($_GET['mensaje'])) {
+            echo '<div id="mensaje" class="alert alert-primary text-center">
+                    <p>' . $_GET['mensaje'] . '</p></div>';
+        }
         ?>
 
         <form action="login.php" method="post">
@@ -25,6 +27,7 @@
             <input type="submit" value="Ingresar" class="btn btn-primary">
         </form><br>
         <p><a href="create.php">Crear nuevo usuario</a></p>
-      </div> 
-    </body>
+    </div>
+</body>
+
 </html>

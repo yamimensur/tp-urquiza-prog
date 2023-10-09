@@ -9,15 +9,17 @@ $resultadosFiltrados = $repositorioGastos->filtrarCat($filtro);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Mostrar Gastos</title>
-        <link rel="stylesheet" href="bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Mostrar Gastos</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
 </head>
+
 <body class="container">
-<?php include('navbar.php') ?>
-<?php
+    <?php include('navbar.php') ?>
+    <?php
 
     if ($resultadosFiltrados) {
 
@@ -42,4 +44,5 @@ $resultadosFiltrados = $repositorioGastos->filtrarCat($filtro);
     ?>
 
 </body>
+
 </html>
