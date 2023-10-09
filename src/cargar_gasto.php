@@ -41,8 +41,8 @@ if (isset($_SESSION['usuario'])) {
             <label for="categoria">Categoria</label>
             <select name="categorias" class="form-control form-control-lg">
                 <option value="1">Supermercado</option>
-                <option value="2">Farmacia</option>
-                <option value="8">Ocio</option>
+                <option value="2">Nafta</option>
+                <option value="7">Perfumeria</option>
             </select><br>
             <p><a href="agregar_cat.php">Agregá una nueva categoria</a></p>
             <p><a href="eliminar_cat.php">Eliminá una categoria</a></p>
