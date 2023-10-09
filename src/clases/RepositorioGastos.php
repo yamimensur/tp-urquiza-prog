@@ -61,6 +61,14 @@ class RepositorioGastos
         return $resultado;
     }
 
+    public function consultarInforme($nombreTabla)
+    {
+        $sql = "SELECT max(monto) FROM  $nombreTabla";
+        $resultado = $this->query($sql);
+
+        return $resultado;
+    }
+
     public function save(Gasto $gasto)
     {
         $q = "INSERT INTO gastos (id,id_categoria,id_usuario,monto,descripcion,fecha) ";

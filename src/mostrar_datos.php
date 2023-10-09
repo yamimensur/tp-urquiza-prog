@@ -2,10 +2,12 @@
 
 require_once 'clases/ImprimirDatos.php';
 require_once 'clases/RepositorioGastos.php';
+require_once 'clases/ImprimirInforme.php';
 
 $bd = new RepositorioGastos();
 
 $mostrar_datos = new ImprimirDatos($bd);
+$mostrar_informe = new ImprimirInforme($bd);
 ?>
 
 
@@ -39,6 +41,10 @@ $mostrar_datos = new ImprimirDatos($bd);
             <input name="filtro" class="form-control form-control-lg" placeholder="Filtrar Gasto"><br>
             <input type="submit" value="Filtrar Gasto" class="btn btn-primary">
             </form>
+
+        <button onclick="mostrarInforme()">Mostrar Informe</button>
+        <div id="informe" style="display:none"> <?php $mostrar_informe->mostrarTabla('gastos');?></div>
+        <script src="scripts/mostrarInforme.js"></script>
 </body>
 </html>
 

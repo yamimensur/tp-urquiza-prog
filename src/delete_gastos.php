@@ -1,13 +1,13 @@
 <?php
 require_once 'clases/RepositorioGastos.php';
 
-$cs = new RepositorioGastos();
+$rg = new RepositorioGastos();
 
 $gastoId = $_POST['gasto'];
 // Verificamos que gastoid no este vacio y sea numerico
 if (!empty($gastoId) && is_numeric($gastoId)) {
     // Llamamos a la funcion eliminar gasto y le enviamos el id del form
-    $resultado = $cs->eliminarGasto($gastoId);
+    $resultado = $rg->eliminarGasto($gastoId);
 
     if ($resultado) {
         $redirigir = "mostrar_datos.php?mensaje=Gasto Eliminado";
