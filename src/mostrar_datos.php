@@ -32,7 +32,7 @@ $mostrar_informe = new ImprimirInforme($bd);
 <form action="delete_gastos.php" method="post">
             <label for="gasto">Escriba el ID del gasto para <strong>eliminarlo</strong> : </label><br>
             <input name="gasto" class="form-control form-control-lg" placeholder="ID Gasto"><br>
-            <input type="submit" value="Eliminar gasto" class="btn btn-primary">
+            <input type="submit" value="Eliminar gasto" class="btn btn-danger">
             </form>
 
 
@@ -42,7 +42,7 @@ $mostrar_informe = new ImprimirInforme($bd);
             <input type="submit" value="Filtrar Gasto" class="btn btn-primary">
             </form>
 
-        <button onclick="mostrarInforme()">Mostrar Informe</button>
+        <button onclick="mostrarInforme()" class="btn btn-info mt-4 mb-2">Mostrar Informe</button>
         <div id="informe" style="display:none"> <?php $mostrar_informe->mostrarTabla('gastos');?></div>
         <script src="scripts/mostrarInforme.js"></script>
 </body>

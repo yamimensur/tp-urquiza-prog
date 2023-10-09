@@ -63,7 +63,7 @@ class RepositorioGastos
 
     public function consultarInforme($nombreTabla)
     {
-        $sql = "SELECT max(monto) FROM  $nombreTabla";
+        $sql = "SELECT nombre_categoria, MAX(monto), MIN(monto), SUM(monto), ROUND(AVG(monto), 2) FROM gastos GROUP BY nombre_categoria";
         $resultado = $this->query($sql);
 
         return $resultado;
