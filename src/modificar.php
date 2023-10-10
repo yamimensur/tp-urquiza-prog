@@ -1,7 +1,7 @@
 <?php
 
 require_once 'clases/Usuario.php';
-require_once 'clases/ControladorSesion.php';
+require_once 'clases/Controlador.php';
 
 session_start();
 
@@ -22,7 +22,7 @@ if (
     die();
 }
 
-$cs = new ControladorSesion();
+$cs = new Controlador();
 
 $resultado = $cs->modificar($_POST['nombre_usuario'], $_POST['nombre'], $_POST['apellido'], $usuario);
 
