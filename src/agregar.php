@@ -1,8 +1,8 @@
 <?php
-require_once 'clases/ControladorSesion.php';
+require_once 'clases/Controlador.php';
 
 if (isset($_POST['nombre'])) {
-    $cs = new ControladorSesion();
+    $cs = new Controlador();
     $result = $cs->agregarCat($_POST['nombre']);
     if( $result[0] === true ) {
         $redirigir = 'cargar_gasto.php?mensaje='.$result[1];

@@ -6,7 +6,7 @@ require_once 'clases/Usuario.php';
 require_once 'clases/Gasto.php';
 require_once 'clases/Categoria.php';
 
-class ControladorSesion
+class Controlador
 {
     /**
      * Verifica el login de usuario.

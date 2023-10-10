@@ -1,50 +1,32 @@
 <?php
 require_once 'clases/RepositorioGastos.php';
+require_once 'clases/FiltrarTabla.php';
 
+$filtro = $_POST['filtro'] ;
+$bd = new RepositorioGastos();
+$mostrar_datos = new FiltrarTabla($bd);
 
-$filtro = $_POST['filtro'];
-$repositorioGastos = new RepositorioGastos();
-$resultadosFiltrados = $repositorioGastos->filtrarCat($filtro);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Mostrar Gastos</title>
-        <link rel="stylesheet" href="bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Mostrar Gastos</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
+
 <body class="container">
-<?php include('navbar.php') ?>
-<h2 class="display-3">Gastos filtrados por categoria:</h2>
-<?php
-
-    if ($resultadosFiltrados) {
-
-    echo "<table class='table table-striped table-dark'>
-        <tr>
-            <th>Fecha</th>
-            <th>Descripcion del gasto</th>
-            <th>Monto</th>
-            <th>Categoria</th>
-        </tr>";
-
-while ($row = $resultadosFiltrados->fetch_assoc()) {
-    echo "<tr>
-            <td>" . $row['fecha'] . "</td>
-            <td>" . $row['descripcion'] . "</td>
-            <td>" . $row['monto'] . "</td>
-            <td>" . $row['nombre_categoria'] . "</td>
-        </tr>";
-        }
-
-        echo "</table>";
-    } else {
-
-        echo "No se encontraron resultados para el filtro: $filtro";
-    }
+    <?php include('navbar.php') ?>
+    <?php $mostrar_datos->filtrarCategoria($filtro);
     ?>
+    <div class='d-flex flex-column'>
+        <div class='p-2'><a href='mostrar_datos.php' class='boton404 nostyle'>volver</a></div>
+        </div>
 
 </body>
+
 </html>

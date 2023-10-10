@@ -1,6 +1,6 @@
 <?php
 require_once 'clases/Usuario.php';
-require_once 'clases/ControladorSesion.php';
+require_once 'clases/Controlador.php';
 
 // Validamos que el usuario tenga sesión iniciada:
 session_start();
@@ -17,7 +17,7 @@ if (empty($_POST['usuario']) || $_POST['usuario'] != $usuario->nombre_usuario) {
     die();
 }
 
-$cs = new ControladorSesion();
+$cs = new Controlador();
 
 $resultado = $cs->eliminar($usuario);
 

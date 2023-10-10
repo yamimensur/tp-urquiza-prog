@@ -1,8 +1,8 @@
 <?php
-require_once 'clases/ControladorSesion.php';
+require_once 'clases/Controlador.php';
 
 if (isset($_POST['usuario']) && isset($_POST['clave'])) {
-    $cs = new ControladorSesion();
+    $cs = new Controlador();
     $result = $cs->create(
         $_POST['usuario'],
         $_POST['nombre'],
