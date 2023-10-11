@@ -2,7 +2,7 @@
 require_once 'clases/RepositorioGastos.php';
 require_once 'clases/FiltrarTabla.php';
 
-$filtro = $_POST['filtro'] ;
+$filtro = $_POST['filtro'];
 $bd = new RepositorioGastos();
 $mostrar_datos = new FiltrarTabla($bd);
 
@@ -25,7 +25,7 @@ $mostrar_datos = new FiltrarTabla($bd);
     ?>
     <div class='d-flex flex-column'>
         <div class='p-2'><a href='mostrar_datos.php' class='boton404 nostyle'>volver</a></div>
-        </div>
+    </div>
 
 </body>
 

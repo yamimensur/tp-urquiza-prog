@@ -28,7 +28,7 @@ if (isset($_SESSION['usuario'])) {
     </div>
     <div class="text-center">
         <h3>Eliminar categoria</h3>
-        <form action="deleteCat.php" method="post">
+        <form action="procesar_eliminar_cat.php" method="post">
             <label for="nombre">Ingrese el nombre de la categoria que desea eliminar</label>
             <input name="nombre" class="form-control form-control-lg" placeholder="Perfumeria"><br>
             <input type="submit" value="eliminar" class="btn btn-primary">

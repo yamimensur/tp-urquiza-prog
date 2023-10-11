@@ -51,3 +51,12 @@ a.nostyle:visited {
 .filtro {
     color: red !important;
 }
+
+#informe {
+  display:none;
+}
+
+#btnOcultar {
+  display: none;
+}
+

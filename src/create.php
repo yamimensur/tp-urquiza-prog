@@ -27,6 +27,7 @@
             <input name="nombre" class="form-control form-control-lg" placeholder="Nombre"><br>
             <input name="apellido" class="form-control form-control-lg" placeholder="Apellido"><br>
             <input type="submit" value="Registrarse" class="btn btn-primary">
+            <a href='index.php' class='btn btn-secondary'> Volver </a>
         </form>
     </div>
 </body>

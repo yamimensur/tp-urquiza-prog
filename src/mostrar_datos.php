@@ -19,6 +19,7 @@ $mostrar_informe = new ImprimirInforme($bd);
         <meta name="viewport" content="width=device-width">
         <title>Mostrar Gastos</title>
         <link rel="stylesheet" href="styles/bootstrap.min.css">
+        <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body class="container">
@@ -47,10 +48,12 @@ $mostrar_informe = new ImprimirInforme($bd);
         </form>
 
         <button onclick="mostrarInforme()" class="btn btn-info mt-4 mb-2">Mostrar Informe</button>
-        <div id="informe" style="display:none">
+        <button onclick="ocultarInforme()" id="btnOcultar" class="btn btn-secondary mt-4 mb-2">Ocultar</button>
+        <div id="informe">
                 <?php $mostrar_informe->mostrarTabla('gastos'); ?>
         </div>
-        <script src="scripts/mostrarInforme.js"></script>
+        <script async src="scripts/ocultarInforme.js"></script>
+        <script async src="scripts/mostrarInforme.js"></script>
 </body>
 
 </html>

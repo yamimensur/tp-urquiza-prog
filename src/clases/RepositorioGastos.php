@@ -40,31 +40,39 @@ class RepositorioGastos
     public function eliminarGasto($gastoId)
     {
         $repo = new RepositorioGastos();
-        
+
         // creo un objeto Gasto con el id enviado por form
         $gasto = new Gasto();
         $gasto->setId($gastoId);
-   
+
         return $repo->eliminar($gasto);
     }
     // Funcion para la consulta sql a la base de datos, y luego utilizamos la conexion para realizar la consulta
-    public function query($sql)
+    public function query($q)
     {
-        return self::$conexion->query($sql);
+        return self::$conexion->query($q);
     }
 
     public function consultarTabla($nombreTabla)
     {
-        $sql = "SELECT * FROM $nombreTabla";
-        $resultado = $this->query($sql);
+        $q = "SELECT * FROM $nombreTabla";
+        $resultado = $this->query($q);
+
+        return $resultado;
+    }
+    public function select()
+    {
+        $q = "SELECT nombre_categoria FROM categorias";
+        $resultado = $this->query($q);
 
         return $resultado;
     }
 
+
     public function consultarInforme($nombreTabla)
     {
-        $sql = "SELECT nombre_categoria, MAX(monto), MIN(monto), SUM(monto), ROUND(AVG(monto), 2) FROM gastos GROUP BY nombre_categoria";
-        $resultado = $this->query($sql);
+        $q = "SELECT nombre_categoria, MAX(monto), MIN(monto), SUM(monto), ROUND(AVG(monto), 2) FROM gastos GROUP BY nombre_categoria";
+        $resultado = $this->query($q);
 
         return $resultado;
     }
@@ -143,7 +151,7 @@ class RepositorioGastos
 
     public function filtrar($filtro)
     {
-        $q = "select * from gastos where nombre_categoria like ? ";
+        $q = "SELECT * FROM gastos WHERE nombre_categoria LIKE ? ";
         $q2 = '%' . $filtro . '%';
         $query = self::$conexion->prepare($q);
         $query->bind_param("s", $q2);
@@ -153,5 +161,6 @@ class RepositorioGastos
             return false;
         }
     }
+
 
 }

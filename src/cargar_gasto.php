@@ -1,6 +1,8 @@
 <?php
 require_once 'clases/Usuario.php';
 require_once 'clases/Controlador.php';
+require_once 'clases/RepositorioGastos.php';
+require_once 'clases/Select.php';
 
 // Validamos que el usuario tenga sesión iniciada:
 session_start();
@@ -11,6 +13,9 @@ if (isset($_SESSION['usuario'])) {
     // Si no, redirigimos al login
     header('Location: index.php');
 }
+ $bd = new RepositorioGastos;
+ $lista = new Select($bd);
+ 
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,11 +44,7 @@ if (isset($_SESSION['usuario'])) {
             <label for="monto">Monto</label>
             <input name="monto" class="form-control form-control-lg" placeholder="$999,99"><br>
             <label for="categoria">Categoria</label>
-            <select name="categorias" class="form-control form-control-lg">
-                <option value="1">Supermercado</option>
-                <option value="2">Nafta</option>
-                <option value="7">Perfumeria</option>
-            </select><br>
+            <?php $lista->selectTabla(); ?><br>
             <p><a href="agregar_cat.php">Agregá una nueva categoria</a></p>
             <p><a href="eliminar_cat.php">Eliminá una categoria</a></p>
             <label for="fecha">Fecha</label>
