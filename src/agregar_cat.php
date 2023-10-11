@@ -29,7 +29,7 @@ if (isset($_SESSION['usuario'])) {
     </div>
     <div class="text-center">
         <h3>Crear categoria</h3>
-        <form action="agregar.php" method="post">
+        <form action="procesar_agregar_cat.php" method="post">
             <label for="nombre">Ingrese el nombre que desee</label>
             <input name="nombre" class="form-control form-control-lg" placeholder="Perfumeria"><br>
             <input type="submit" value="Crear" class="btn btn-primary">

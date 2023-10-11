@@ -14,9 +14,9 @@ class Select
     {
         $resultado = $this->bd->select(); 
 
-        echo "<select>";
+        echo "<select name='categorias'>";
                  while ($row = $resultado->fetch_assoc()) {
-                   echo "<option> $row[nombre_categoria]  </option>";}
+                   echo "<option value='{$row['id_categoria']}'>{$row['nombre_categoria']}  </option>";}
         echo "</select>";
         
         

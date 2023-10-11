@@ -2,7 +2,7 @@
 require_once 'clases/Usuario.php';
 require_once 'clases/Controlador.php';
 require_once 'clases/RepositorioGastos.php';
-require_once 'clases/Select.php';
+require_once 'clases/SelectCategoria.php';
 
 // Validamos que el usuario tenga sesión iniciada:
 session_start();
@@ -40,7 +40,7 @@ if (isset($_SESSION['usuario'])) {
     ?>
     <div class="text-center">
         <h3>Cargar nuevo gasto</h3>
-        <form action="cargar.php" method="post">
+        <form action="procesar_cargar_gasto.php" method="post">
             <label for="monto">Monto</label>
             <input name="monto" class="form-control form-control-lg" placeholder="$999,99"><br>
             <label for="categoria">Categoria</label>

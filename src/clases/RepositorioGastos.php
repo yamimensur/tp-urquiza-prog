@@ -62,7 +62,7 @@ class RepositorioGastos
     }
     public function select()
     {
-        $q = "SELECT nombre_categoria FROM categorias";
+        $q = "SELECT nombre_categoria, id_categoria FROM categorias";
         $resultado = $this->query($q);
 
         return $resultado;
