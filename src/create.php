@@ -21,7 +21,7 @@
         }
         ?>
 
-        <form action="crear_usuario.php" method="post">
+        <form action="procesar_crear_usuario.php" method="post">
             <input name="usuario" class="form-control form-control-lg" placeholder="Usuario"><br>
             <input name="clave" type="password" class="form-control form-control-lg" placeholder="Contraseña"><br>
             <input name="nombre" class="form-control form-control-lg" placeholder="Nombre"><br>
