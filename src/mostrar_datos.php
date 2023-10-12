@@ -27,6 +27,9 @@ $mostrar_informe = new ImprimirInforme($bd);
 <body class="fixed-background">
         <?php include('navbar.php') ?>
         <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Gastos del hogar</h1>
+        </div>
                 <?php
                 if (isset($_GET['mensaje'])) {
                         echo '<div id="mensaje" class="alert alert-primary text-center">

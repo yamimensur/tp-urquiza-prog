@@ -74,8 +74,13 @@ if (isset($_SESSION['usuario'])) {
                     <p>' . $_GET['mensaje'] . '</p></div>';
     }
     ?>
-
+    <div class="div-home">
     <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <div class="parrafo-home"><p>¡Hola! Esta es una aplicación que diseñamos para que cargues tus gastos y lleves un control día a día para saber en qué se te está yendo todo el dinero!
+    Podes cargar y borrar tantos tus gastos como las categorías en las que inviertes tu dinero. Además, te brindamos un informe muy útil el cual te dirá el máximo y el promedio de lo gastado en cada categoría.
+    Para comenzar podes hacer click <a href="cargar_gasto.php">aquí</a>
+    </p></div>
+  </div>
   </div>
 
 </body>

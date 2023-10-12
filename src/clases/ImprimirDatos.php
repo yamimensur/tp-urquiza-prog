@@ -18,7 +18,8 @@ class ImprimirDatos
 
             if ($resultado->num_rows > 0) {
 
-                echo "<table class='table table-striped  '>
+                echo "
+                <table class='tabla-resultados table table-bordered table-striped  '>
                 
                     <tr class='thead-dark'>
                          <th>ID Gasto</th>
@@ -30,7 +31,7 @@ class ImprimirDatos
                     </tr>";
 
                 while ($row = $resultado->fetch_assoc()) {
-                    echo "<tr>
+                    echo "<tr class='fila-datos'>
                         <td>" . $row['id'] . "</td>
                         <td>" . $row['nombre_usuario'] . "</td>
                         <td>" . $row['monto'] . "</td>
@@ -40,7 +41,8 @@ class ImprimirDatos
                       </tr>";
                 }
 
-                echo "</table>";
+                echo "</table>
+                ";
             } else {
 
                 echo "<div class='carga-datos'> <a href='cargar_gasto.php'> <img src='images/nodata.jpg'  class='no-data'/></a>

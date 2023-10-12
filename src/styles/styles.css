@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap');
+
 /* ----------Estilos filtrar_tabla----------- */
 a.nostyle:link {
     text-decoration: inherit;
@@ -72,7 +74,8 @@ body {
   background-position: center center;  
   background-image: url(../images/finanzas.jpg);
   background-size: cover;
-  background-attachment: fixed; 
+  background-attachment: fixed;
+  font-family: 'Roboto', sans-serif; 
 }
 label {
   background-color: rgba(255, 255, 255, 0.9);
@@ -88,6 +91,24 @@ label {
   margin: 1rem 0 1rem 0;
 }
 
+/* ----------Estilos Home----------- */
+
+
+.div-home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#piechart {
+width: 60%;
+}
+
+.parrafo-home {
+  width: 40%;
+}
 
 /* ----------Estilos ImprimirDatos----------- */
 thead {
@@ -108,3 +129,12 @@ thead {
   max-width: 100%;
   height: auto;
 }
+
+
+/* ----------Otros----------- */
+
+.jumbotron {
+  background-color: rgba(14, 203, 203, 0.057) !important; 
+}
+
+
