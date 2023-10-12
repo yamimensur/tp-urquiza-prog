@@ -25,7 +25,7 @@ $mostrar_datos = new FiltrarTabla($bd);
         <?php $mostrar_datos->filtrarCategoria($filtro);
         ?>
         <div class='d-flex flex-column'>
-            <div class='p-2'><a href='mostrar_datos.php' class='boton404 nostyle'>volver</a></div>
+            <div class='p-2'><a href='mostrar_datos.php' class='boton404'>volver</a></div>
         </div>
     </div>
 </body>

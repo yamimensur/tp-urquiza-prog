@@ -27,9 +27,11 @@ a.nostyle:visited {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  overflow: hidden;
+  z-index: 1; 
 }
 
-.boton404:after {
+.boton404::before {
   content: "";
   background-color: #ffe54c;
   width: 100%;
@@ -39,11 +41,13 @@ a.nostyle:visited {
   top: 7px;
   left: 7px;
   transition: 0.2s;
+  opacity: 1; 
 }
 
-.boton404:hover:after {
+.boton404:hover::before {
   top: 0px;
   left: 0px;
+  opacity: 1; 
 }
 
 @media (min-width: 768px) {
@@ -75,7 +79,8 @@ body {
   background-image: url(../images/finanzas.jpg);
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'Roboto', sans-serif; 
+  font-family: 'Roboto', sans-serif;
+  z-index: -2; 
 }
 label {
   background-color: rgba(255, 255, 255, 0.9);
