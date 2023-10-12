@@ -10,7 +10,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
   <a class="navbar-brand" href="#">
-    <img src="ico\budget.png" width="30" height="30" alt="">
+    <img src="ico\budget.png" width="30" height="30" alt="" >
   </a> 
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +30,9 @@
       </li>     
       <li class="nav-item">
         <a class="nav-link" href="datos_modificar.php">Modificar Cuenta</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="borrar_usuario.php">Eliminar Cuenta</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto"> 

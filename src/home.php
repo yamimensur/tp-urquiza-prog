@@ -1,6 +1,13 @@
 <?php
 require_once 'clases/Usuario.php';
 
+
+require_once 'clases/ImprimirDatos.php';
+require_once 'clases/RepositorioGastos.php';
+require_once 'clases/ImprimirInforme.php';
+$bd = new RepositorioGastos();
+$grafico= new ImprimirInforme($bd);
+
 // Retomamos la sesión previamente iniciada, y recuperamos el objeto Usuario
 // que contiene los datos del usuario autenticado:
 session_start();
@@ -19,18 +26,46 @@ if (isset($_SESSION['usuario'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Gastos del hogar</title>
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css"> 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+        <?php
+         echo $grafico->grafico('gastos');
+        ?>
+        ]);
+
+        var options = {
+          title: 'Mis Gastos'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    
 </head>
 
-<body class="container">
-    <?php include('navbar.php') ?>
-    <div class="jumbotron text-center">
-        <h1>Gastos del hogar</h1>
-    </div>
-    <div class="text-center">
-        <h3>Bienvenido
+<body>
+<div class="fixed-background">
+<?php include('navbar.php') ?>
+    <div class="container">
+    <br>
+    <div class="alert alert-light text-center" role="alert">
+         <h1>Gastos del hogar</h1>
+         <h4>Bienvenido
             <?php echo $nomApe; ?>
-        </h3>
+        </h4>
+    </div><br>
+   
 
         <?php
         if (isset($_GET['mensaje'])) {
@@ -38,11 +73,9 @@ if (isset($_SESSION['usuario'])) {
                     <p>' . $_GET['mensaje'] . '</p></div>';
         }
         ?>
-        <p><a href="cargar_gasto.php">Cargar un nuevo gasto</a></p>
-        <p><a href="datos_modificar.php">Modificar datos de mi usuario</a></p>
-        <p><a href="confirmar_delete.php">Eliminar mi usuario</a></p>
-        <p><a href="logout.php">Cerrar sesión</a></p>
-        <p><a href="mostrar_datos.php">Mostra gastos</a></p>
+
+       <div id="piechart" style="width: 900px; height: 500px;"></div>
+    </div>
     </div>
 </body>
 

@@ -48,4 +48,11 @@ class ImprimirInforme
         }
 
     }
+
+    public function grafico($nombreTabla){
+        $resultado = $this->bd->consultarInforme($nombreTabla);
+        while ($row=$resultado->fetch_assoc()){
+            echo "['" .$row['nombre_categoria']."', " .$row['SUM(monto)']."],";
+          }
+    }
 }

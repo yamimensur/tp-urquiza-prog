@@ -1,3 +1,5 @@
+
+
 a.nostyle:link {
     text-decoration: inherit;
     color: inherit;
@@ -60,3 +62,12 @@ a.nostyle:visited {
   display: none;
 }
 
+
+.fixed-background {
+  background-repeat:no-repeat ;
+  background-position: center center;
+  background-image: url(../images/finanzas.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  
+}

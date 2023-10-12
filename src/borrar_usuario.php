@@ -21,6 +21,7 @@ if (isset($_SESSION['usuario'])) {
 </head>
 
 <body class="container">
+<?php include('navbar.php') ?>
     <div class="jumbotron text-center">
         <h1>Agenda de Gastos</h1>
     </div>
@@ -30,7 +31,7 @@ if (isset($_SESSION['usuario'])) {
                 Esta acción no se puede deshacer.</p>
         </div>
 
-        <form action="delete.php" method="post">
+        <form action="procesar_borrar_usuario.php" method="post">
             <label for="usuario">Escriba su nombre de usuario para <strong>eliminar</strong> su cuenta: </label><br>
             <input name="usuario" class="form-control form-control-lg" placeholder="Usuario"><br>
             <input type="submit" value="Eliminar usuario" class="btn btn-primary">

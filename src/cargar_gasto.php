@@ -14,7 +14,7 @@ if (isset($_SESSION['usuario'])) {
     header('Location: index.php');
 }
  $bd = new RepositorioGastos;
- $lista = new Select($bd);
+ $lista = new SelectCategoria($bd);
  
 ?>
 <!DOCTYPE html>
