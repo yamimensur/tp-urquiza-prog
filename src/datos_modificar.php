@@ -29,7 +29,7 @@ if (isset($_SESSION['usuario'])) {
     </div>
     <div class="text-center">
         <h3>Modificar datos de usuario</h3>
-        <form action="modificar.php" method="post">
+        <form action="procesar_modificar_usuario.php" method="post">
             <label for="nombre_usuario">Nombre de usuario</label>
             <input name="nombre_usuario" class="form-control form-control-lg"
                 value="<?php echo $usuario->nombre_usuario; ?>"><br>

@@ -1,7 +1,7 @@
 <?php
 require_once 'RepositorioGastos.php';
 
-class Select
+class SelectCategoria
 {
     private $bd;
 
@@ -14,7 +14,7 @@ class Select
     {
         $resultado = $this->bd->select(); 
 
-        echo "<select name='categorias'>";
+        echo "<select name='categorias'class='form-control form-control-lg'>";
                  while ($row = $resultado->fetch_assoc()) {
                    echo "<option value='{$row['id_categoria']}'>{$row['nombre_categoria']}  </option>";}
         echo "</select>";
