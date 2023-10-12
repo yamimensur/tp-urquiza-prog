@@ -1,5 +1,5 @@
 
-
+/* ----------Estilos filtrar_tabla----------- */
 a.nostyle:link {
     text-decoration: inherit;
     color: inherit;
@@ -54,6 +54,8 @@ a.nostyle:visited {
     color: red !important;
 }
 
+/* ----------Estilos mostrar_datos (Informe)----------- */
+
 #informe {
   display:none;
 }
@@ -62,11 +64,9 @@ a.nostyle:visited {
   display: none;
 }
 
-.table-striped>tr:nth-child(odd){
-  background-color:red !important;
-}
 
 
+/* ----------Estilos generales----------- */
 body {
   background-repeat:no-repeat ;
   background-position: center center;  
@@ -88,6 +88,23 @@ label {
   margin: 1rem 0 1rem 0;
 }
 
+
+/* ----------Estilos ImprimirDatos----------- */
 thead {
   border-radius: 5px !important;
+}
+
+.carga-datos {
+  display: flex !important;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ overflow: hidden;
+
+ 
+}
+
+.no-data {
+  max-width: 100%;
+  height: auto;
 }

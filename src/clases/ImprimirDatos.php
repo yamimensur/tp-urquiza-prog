@@ -43,7 +43,11 @@ class ImprimirDatos
                 echo "</table>";
             } else {
 
-                echo "No existen datos para elaborar informe.";
+                echo "<div class='carga-datos'> <a href='cargar_gasto.php'> <img src='images/nodata.jpg'  class='no-data'/></a>
+                <p class='leyenda-carga-datos'>Comienza cargando gastos para podes disfrutar de la aplicación.
+                <a href='cargar_gasto.php'>Nuevos gastos!</a></p>
+                
+                </div>";
             }
         } else {
             // Muestra un mensaje de error si hubo un problema con la consulta
