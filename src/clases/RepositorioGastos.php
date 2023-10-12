@@ -8,7 +8,7 @@ require_once 'ImprimirDatos.php';
 class RepositorioGastos
 {
     private static $conexion = null;
-
+    
     /***
      * Método constructor. Si ya había una conexión a la base de datos
      * establecida, no hace nada. Si la conexión aún no se estableció, realiza
@@ -55,7 +55,9 @@ class RepositorioGastos
 
     public function consultarTabla($nombreTabla)
     {
-        $q = "SELECT * FROM $nombreTabla";
+        $q = "SELECT $nombreTabla.*, usuarios.nombre_usuario
+        FROM $nombreTabla
+        INNER JOIN usuarios ON $nombreTabla.id_usuario = usuarios.id;";
         $resultado = $this->query($q);
 
         return $resultado;

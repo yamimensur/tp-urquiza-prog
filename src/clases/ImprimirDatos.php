@@ -22,7 +22,7 @@ class ImprimirDatos
                 
                     <tr class='thead-dark'>
                          <th>ID Gasto</th>
-                         <th>ID Usuario</th> 
+                         <th>Usuario</th> 
                          <th>Monto</th> 
                          <th>Descripcion</th> 
                          <th>Fecha</th>
@@ -32,7 +32,7 @@ class ImprimirDatos
                 while ($row = $resultado->fetch_assoc()) {
                     echo "<tr>
                         <td>" . $row['id'] . "</td>
-                        <td>" . $row['id_usuario'] . "</td>
+                        <td>" . $row['nombre_usuario'] . "</td>
                         <td>" . $row['monto'] . "</td>
                         <td>" . $row['descripcion'] . "</td>
                         <td>" . $row['fecha'] . "</td>
