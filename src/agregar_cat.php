@@ -20,20 +20,24 @@ if (isset($_SESSION['usuario'])) {
     <meta name="viewport" content="width=device-width">
     <title>Bienvenido al sistema</title>
     <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+
 </head>
 
-<body class="container">
+<body class="fixed-background">
     <?php include('navbar.php') ?>
-    <div class="jumbotron text-center">
-        <h1>Gastos del hogar</h1>
-    </div>
-    <div class="text-center">
-        <h3>Crear categoria</h3>
-        <form action="procesar_agregar_cat.php" method="post">
-            <label for="nombre">Ingrese el nombre que desee</label>
-            <input name="nombre" class="form-control form-control-lg" placeholder="Perfumeria"><br>
-            <input type="submit" value="Crear" class="btn btn-primary">
-        </form>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Gastos del hogar</h1>
+        </div>
+        <div class="text-center">
+            <h3>Crear categoria</h3>
+            <form action="procesar_agregar_cat.php" method="post">
+                <label for="nombre">Ingrese el nombre que desee</label>
+                <input name="nombre" class="form-control form-control-lg" placeholder="Perfumeria"><br>
+                <input type="submit" value="Crear" class="btn btn-primary">
+            </form>
+        </div>
     </div>
 </body>
 

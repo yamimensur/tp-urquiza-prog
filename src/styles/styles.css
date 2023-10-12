@@ -62,12 +62,32 @@ a.nostyle:visited {
   display: none;
 }
 
+.table-striped>tr:nth-child(odd){
+  background-color:red !important;
+}
 
-.fixed-background {
+
+body {
   background-repeat:no-repeat ;
-  background-position: center center;
+  background-position: center center;  
   background-image: url(../images/finanzas.jpg);
   background-size: cover;
-  background-attachment: fixed;
-  
+  background-attachment: fixed; 
+}
+label {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  padding: 0.3rem;
+  margin: 0.5rem 0 0.2rem 0;
+}
+
+.container {
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 1rem 0 1rem 0;
+}
+
+thead {
+  border-radius: 5px !important;
 }

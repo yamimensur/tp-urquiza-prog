@@ -18,8 +18,9 @@ class ImprimirDatos
 
             if ($resultado->num_rows > 0) {
 
-                echo "<table class='table table-dark '>
-                    <tr>
+                echo "<table class='table table-striped  '>
+                
+                    <tr class='thead-dark'>
                          <th>ID Gasto</th>
                          <th>ID Usuario</th> 
                          <th>Monto</th> 
