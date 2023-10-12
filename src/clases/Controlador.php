@@ -1,9 +1,12 @@
 <?php
 
 require_once 'clases/RepositorioUsuario.php';
+require_once 'clases/RepositorioGastos.php';
 require_once 'clases/Usuario.php';
+require_once 'clases/Gasto.php';
+require_once 'clases/Categoria.php';
 
-class ControladorSesion
+class Controlador
 {
     /**
      * Verifica el login de usuario.
@@ -78,13 +81,9 @@ class ControladorSesion
         $repo = new RepositorioUsuario();
         return $repo->eliminar($usuario);
 
-        // O bien:
-        // if ($repo->eliminar($usuario)) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
     }
+
+  
 
     /**
      * Solicita que se actualicen en la BD los datos del usuario, y si tiene
@@ -113,6 +112,54 @@ class ControladorSesion
             return false;
         }
     }
+
+    function cargarGasto($monto,$categoria,$fecha,$descripcion)
+    {
+        session_start();
+        if (isset($_SESSION['usuario'])) 
+        {
+            $usuario = unserialize($_SESSION['usuario']);
+            $id_usuario= $usuario->getId();
+            $repo = new RepositorioGastos();
+            $gasto = new Gasto($id=null,$categoria,$id_usuario,$monto,$descripcion,$fecha);
+            $id = $repo->save($gasto);
+            if ($id === false) {
+                // No se pudo guardar
+                return [ false, "Error al guardar el gasto" ];
+            } else {
+                $gasto->setId($id);
+                return [ true, "Gasto guardado correctamente" ];
+                 }
+        }
+    }
+
+    function agregarCat($nombre)
+    {
+            $repo = new RepositorioGastos();
+            $cat = new Categoria($nombre);
+            $id = $repo->saveCat($cat);
+            if ($id === false) {
+                // No se pudo guardar
+                return [ false, "Error al crear la categoria" ];
+            } else {
+                $cat->setId($id);
+                return [ true, "Categoria creada correctamente" ];
+                 }
+    }
+
+    function eliminarCat($nombre)
+    {
+        $repo = new RepositorioGastos();
+         if($repo->deleteCat($nombre)){
+            return [ true, "Categoria eliminada correctamente" ];
+         }else{
+            return [ false, "Error al eliminar la categoria" ]; 
+         }
+
+    }
+    
+ 
+
 
 }
 

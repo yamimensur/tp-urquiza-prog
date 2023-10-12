@@ -28,20 +28,14 @@ if (isset($_SESSION['usuario'])) {
     <?php include('navbar.php') ?>
     <div class="container">
         <div class="jumbotron text-center">
-            <h1>Agenda de Gastos</h1>
+            <h1>Gastos del hogar</h1>
         </div>
         <div class="text-center">
-            <h3>Modificar datos de usuario</h3>
-            <form action="procesar_modificar_usuario.php" method="post">
-                <label for="nombre_usuario">Nombre de usuario</label>
-                <input name="nombre_usuario" class="form-control form-control-lg"
-                    value="<?php echo $usuario->nombre_usuario; ?>"><br>
-                <label for="nombre">Nombre</label>
-                <input name="nombre" class="form-control form-control-lg" value="<?php echo $usuario->nombre; ?>"><br>
-                <label for="usuario">Apellido</label>
-                <input name="apellido" class="form-control form-control-lg"
-                    value="<?php echo $usuario->apellido; ?>"><br>
-                <input type="submit" value="Modificar datos" class="btn btn-primary">
+            <h3>Crear categoria</h3>
+            <form action="procesar_agregar_cat.php" method="post">
+                <label for="nombre">Ingrese el nombre que desee</label>
+                <input name="nombre" class="form-control form-control-lg" placeholder="Perfumeria"><br>
+                <input type="submit" value="Crear" class="btn btn-primary">
             </form>
         </div>
     </div>
