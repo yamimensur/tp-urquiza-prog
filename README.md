@@ -1,5 +1,7 @@
 # App de Seguimiento de Gastos
 
+![Money Cat](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjA5bDF3b2RuMGoxZmNvdXY3N2RyY3Q2NW93OXkyZzVuaHBzYWhvNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XQKBuQmfjt1xm/giphy.gif)
+
 Esta es una aplicación que permite a cada usuario registrado llevar un registro de sus gastos personales.
 
 ## Tecnologias 
@@ -49,6 +51,8 @@ Puedes probar la aplicación utilizando las siguientes cuentas de usuario pre-ca
 
 -------------------------------------------
 # Expense Tracking App
+
+![Money Cat](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjA5bDF3b2RuMGoxZmNvdXY3N2RyY3Q2NW93OXkyZzVuaHBzYWhvNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XQKBuQmfjt1xm/giphy.gif)
 
 This is an application that allows each registered user to keep track of their personal expenses.
 
