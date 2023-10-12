@@ -18,8 +18,9 @@ class ImprimirInforme
 
             if ($resultado->num_rows > 0) {
 
-                echo "<table class='table table-dark '>
-                    <tr>
+                echo "<table class='table table-striped '>
+                    
+                    <tr class='thead-dark'>
                          <th>Categoria</th>
                          <th>Maximo Gastado</th> 
                          <th>Minimo Gastado</th> 

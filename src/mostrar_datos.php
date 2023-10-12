@@ -20,37 +20,44 @@ $mostrar_informe = new ImprimirInforme($bd);
         <title>Mostrar Gastos</title>
         <link rel="stylesheet" href="styles/bootstrap.min.css">
         <link rel="stylesheet" href="styles/styles.css">
+
+        <link rel="stylesheet" href="styles/styles.css">
 </head>
 
-<body class="container">
+<body class="fixed-background">
         <?php include('navbar.php') ?>
-        <?php
-        if (isset($_GET['mensaje'])) {
-                echo '<div id="mensaje" class="alert alert-primary text-center">
-                    <p>' . $_GET['mensaje'] . '</p></div>';
-        }
-        ?>
-        <div>
-                <?php $mostrar_datos->mostrarTabla('gastos'); ?>
+        <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Gastos del hogar</h1>
         </div>
-        <!-- Vamos a enviar por metodo post el ID del gasto para poder eliminarlo. -->
-        <form action="delete_gastos.php" method="post">
-                <label for="gasto">Escriba el ID del gasto para <strong>eliminarlo</strong> : </label><br>
-                <input name="gasto" class="form-control form-control-lg" placeholder="ID Gasto"><br>
-                <input type="submit" value="Eliminar gasto" class="btn btn-danger">
-        </form>
+                <?php
+                if (isset($_GET['mensaje'])) {
+                        echo '<div id="mensaje" class="alert alert-primary text-center">
+                    <p>' . $_GET['mensaje'] . '</p></div>';
+                }
+                ?>
+                <div>
+                        <?php $mostrar_datos->mostrarTabla('gastos'); ?>
+                </div>
+                <!-- Vamos a enviar por metodo post el ID del gasto para poder eliminarlo. -->
+                <form action="delete_gastos.php" method="post">
+                        <label for="gasto">Escriba el ID del gasto para <strong>eliminarlo</strong> : </label><br>
+                        <input name="gasto" class="form-control form-control-lg" placeholder="ID Gasto"><br>
+                        <input type="submit" value="Eliminar gasto" class="btn btn-danger">
+                </form>
 
 
-        <form action="filtrar_tabla.php" method="post">
-                <label for="filtro">Buscar por <strong>categorias</strong> : </label><br>
-                <input name="filtro" class="form-control form-control-lg" placeholder="Filtrar Gasto"><br>
-                <input type="submit" value="Filtrar Gasto" class="btn btn-primary">
-        </form>
+                <form action="filtrar_tabla.php" method="post">
+                        <label for="filtro">Buscar por <strong>categorias</strong> : </label><br>
+                        <input name="filtro" class="form-control form-control-lg" placeholder="Filtrar Gasto"><br>
+                        <input type="submit" value="Filtrar Gasto" class="btn btn-primary">
+                </form>
 
-        <button onclick="mostrarInforme()" class="btn btn-info mt-4 mb-2">Mostrar Informe</button>
-        <button onclick="ocultarInforme()" id="btnOcultar" class="btn btn-secondary mt-4 mb-2">Ocultar</button>
-        <div id="informe">
-                <?php $mostrar_informe->mostrarTabla('gastos'); ?>
+                <button onclick="mostrarInforme()" class="btn btn-info mt-4 mb-2">Mostrar Informe</button>
+                <button onclick="ocultarInforme()" id="btnOcultar" class="btn btn-secondary mt-4 mb-2">Ocultar</button>
+                <div id="informe">
+                        <?php $mostrar_informe->mostrarTabla('gastos'); ?>
+                </div>
         </div>
         <script async src="scripts/ocultarInforme.js"></script>
         <script async src="scripts/mostrarInforme.js"></script>

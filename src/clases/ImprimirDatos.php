@@ -18,10 +18,12 @@ class ImprimirDatos
 
             if ($resultado->num_rows > 0) {
 
-                echo "<table class='table table-dark '>
-                    <tr>
+                echo "
+                <table class='tabla-resultados table table-bordered table-striped  '>
+                
+                    <tr class='thead-dark'>
                          <th>ID Gasto</th>
-                         <th>ID Usuario</th> 
+                         <th>Usuario</th> 
                          <th>Monto</th> 
                          <th>Descripcion</th> 
                          <th>Fecha</th>
@@ -29,9 +31,9 @@ class ImprimirDatos
                     </tr>";
 
                 while ($row = $resultado->fetch_assoc()) {
-                    echo "<tr>
+                    echo "<tr class='fila-datos'>
                         <td>" . $row['id'] . "</td>
-                        <td>" . $row['id_usuario'] . "</td>
+                        <td>" . $row['nombre_usuario'] . "</td>
                         <td>" . $row['monto'] . "</td>
                         <td>" . $row['descripcion'] . "</td>
                         <td>" . $row['fecha'] . "</td>
@@ -39,10 +41,15 @@ class ImprimirDatos
                       </tr>";
                 }
 
-                echo "</table>";
+                echo "</table>
+                ";
             } else {
 
-                echo "No existen datos para elaborar informe.";
+                echo "<div class='carga-datos'> <a href='cargar_gasto.php'> <img src='images/nodata.jpg'  class='no-data'/></a>
+                <p class='leyenda-carga-datos'>Comienza cargando gastos para podes disfrutar de la aplicación.
+                <a href='cargar_gasto.php'>Nuevos gastos!</a></p>
+                
+                </div>";
             }
         } else {
             // Muestra un mensaje de error si hubo un problema con la consulta
