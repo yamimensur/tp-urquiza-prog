@@ -12,7 +12,7 @@ class ImprimirDatos
 
     public function mostrarTabla($nombreTabla)
     {
-        $resultado = $this->bd->consultarTabla($nombreTabla); 
+        $resultado = $this->bd->consultarTabla($nombreTabla);
 
         if ($resultado) {
 
@@ -28,6 +28,7 @@ class ImprimirDatos
                          <th>Descripcion</th> 
                          <th>Fecha</th>
                          <th>Categoria</th>
+                         <th>Borrar</th>
                     </tr>";
 
                 while ($row = $resultado->fetch_assoc()) {
@@ -38,6 +39,12 @@ class ImprimirDatos
                         <td>" . $row['descripcion'] . "</td>
                         <td>" . $row['fecha'] . "</td>
                         <td>" . $row['nombre_categoria'] . "</td>
+                        <td> <form action='delete_gastos.php' method='post'>
+                        <input type='hidden' name='gasto' value='$row[id]'>
+                        <button type='submit' name='delete_gastos' class='btn p-0 mb-0' >
+                        <img src='ico/trash-bin.png' width='25' height='25' alt='Delete' /> 
+                        </button>
+                        </form></td>
                       </tr>";
                 }
 
