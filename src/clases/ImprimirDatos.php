@@ -39,7 +39,7 @@ class ImprimirDatos
                         <td>" . $row['descripcion'] . "</td>
                         <td>" . $row['fecha'] . "</td>
                         <td>" . $row['nombre_categoria'] . "</td>
-                        <td> <form action='delete_gastos.php' method='post'>
+                        <td> <form action='delete_gastos.php' method='post' onsubmit='return confirmarDelete();'>
                         <input type='hidden' name='gasto' value='$row[id]'>
                         <button type='submit' name='delete_gastos' class='btn p-0 mb-0' >
                         <img src='ico/trash-bin.png' width='25' height='25' alt='Delete' /> 
