@@ -61,12 +61,8 @@ $mostrar_informe = new ImprimirInforme($bd);
         </div>
         <script async src="scripts/ocultarInforme.js"></script>
         <script async src="scripts/mostrarInforme.js"></script>
-        <script>
-        function confirmarDelete() {            
-            let resultado = confirm("¿Desea eliminar esta tarea?");
-            return resultado;
-        }
-    </script>
+        <script  src="scripts/alertaBorrarGastos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
