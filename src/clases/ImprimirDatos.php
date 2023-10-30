@@ -12,7 +12,7 @@ class ImprimirDatos
 
     public function mostrarTabla($nombreTabla)
     {
-        $resultado = $this->bd->consultarTabla($nombreTabla); 
+        $resultado = $this->bd->consultarTabla($nombreTabla);
 
         if ($resultado) {
 
@@ -22,22 +22,29 @@ class ImprimirDatos
                 <table class='tabla-resultados table table-bordered table-striped  '>
                 
                     <tr class='thead-dark'>
-                         <th>ID Gasto</th>
+                         <th>Select</th>
                          <th>Usuario</th> 
                          <th>Monto</th> 
                          <th>Descripcion</th> 
                          <th>Fecha</th>
                          <th>Categoria</th>
+                         <th>Borrar</th>
                     </tr>";
 
                 while ($row = $resultado->fetch_assoc()) {
                     echo "<tr class='fila-datos'>
-                        <td>" . $row['id'] . "</td>
+                        <td> <input type='checkbox' value='$row[id]' class='checkboxBorrar'  </td>
                         <td>" . $row['nombre_usuario'] . "</td>
                         <td>" . $row['monto'] . "</td>
                         <td>" . $row['descripcion'] . "</td>
                         <td>" . $row['fecha'] . "</td>
                         <td>" . $row['nombre_categoria'] . "</td>
+                        <td> <form action='delete_gastos.php' method='post' class='borrarGasto'>
+                        <input type='hidden' name='gasto' value='$row[id]'>
+                        <button type='button' name='delete_gastos' class='btn p-0 mb-0' >
+                        <img src='ico/trash-bin.png' width='25' height='25' alt='Delete' /> 
+                        </button>
+                        </form></td>
                       </tr>";
                 }
 

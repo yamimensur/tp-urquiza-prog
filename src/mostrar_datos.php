@@ -40,10 +40,9 @@ $mostrar_informe = new ImprimirInforme($bd);
                         <?php $mostrar_datos->mostrarTabla('gastos'); ?>
                 </div>
                 <!-- Vamos a enviar por metodo post el ID del gasto para poder eliminarlo. -->
-                <form action="delete_gastos.php" method="post">
-                        <label for="gasto">Escriba el ID del gasto para <strong>eliminarlo</strong> : </label><br>
-                        <input name="gasto" class="form-control form-control-lg" placeholder="ID Gasto"><br>
-                        <input type="submit" value="Eliminar gasto" class="btn btn-danger">
+                <form action="delete_gastos.php" method="post" id="borrarVarios">                        
+                        <input type="hidden" name="valoresSeleccionados"  id="valoresSeleccionados">
+                        <input type="submit" id="botonBorrar" value="Eliminar gasto" class="btn btn-danger">
                 </form>
 
 
@@ -59,8 +58,11 @@ $mostrar_informe = new ImprimirInforme($bd);
                         <?php $mostrar_informe->mostrarTabla('gastos'); ?>
                 </div>
         </div>
+        <script src="scripts/borrarVariosGastos.js"> </script>
         <script async src="scripts/ocultarInforme.js"></script>
         <script async src="scripts/mostrarInforme.js"></script>
+        <script  src="scripts/alertaBorrarGastos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
