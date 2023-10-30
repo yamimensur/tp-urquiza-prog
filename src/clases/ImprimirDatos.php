@@ -22,7 +22,7 @@ class ImprimirDatos
                 <table class='tabla-resultados table table-bordered table-striped  '>
                 
                     <tr class='thead-dark'>
-                         <th>ID Gasto</th>
+                         <th>Select</th>
                          <th>Usuario</th> 
                          <th>Monto</th> 
                          <th>Descripcion</th> 
@@ -33,7 +33,7 @@ class ImprimirDatos
 
                 while ($row = $resultado->fetch_assoc()) {
                     echo "<tr class='fila-datos'>
-                        <td>" . $row['id'] . "</td>
+                        <td> <input type='checkbox' value='$row[id]' class='checkboxBorrar'  </td>
                         <td>" . $row['nombre_usuario'] . "</td>
                         <td>" . $row['monto'] . "</td>
                         <td>" . $row['descripcion'] . "</td>
