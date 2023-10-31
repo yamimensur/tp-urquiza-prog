@@ -13,8 +13,8 @@ if (isset($_SESSION['usuario'])) {
     // Si no, redirigimos al login
     header('Location: index.php');
 }
-$bd = new RepositorioGastos;
-$lista = new SelectCategoria($bd);
+
+$lista = new SelectCategoria();
 
 ?>
 <!DOCTYPE html>

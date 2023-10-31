@@ -3,8 +3,7 @@ require_once 'clases/RepositorioGastos.php';
 require_once 'clases/FiltrarTabla.php';
 
 $filtro = $_POST['filtro'];
-$bd = new RepositorioGastos();
-$mostrar_datos = new FiltrarTabla($bd);
+$mostrar_datos = new FiltrarTabla();
 
 ?>
 

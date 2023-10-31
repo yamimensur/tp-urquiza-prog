@@ -1,7 +1,8 @@
 <?php
 require_once 'clases/RepositorioGastos.php';
+require_once 'clases/Controlador.php';
 
-$rg = new RepositorioGastos();
+$cs = new Controlador();
 $valoresCheckbox = $_POST['valoresSeleccionados'];
 $gastoId = $_POST['gasto'];
 $seleccionIds = json_decode($valoresCheckbox);
@@ -9,7 +10,7 @@ $seleccionIds = json_decode($valoresCheckbox);
 if (!empty($seleccionIds)) {
     foreach ($seleccionIds as $gastoId) {
         if (is_numeric($gastoId)) {
-            $resultado = $rg->eliminarGasto($gastoId);
+            $resultado = $cs->eliminarGasto($gastoId);
 
             if ($resultado) {
                 $redirigir = "mostrar_datos.php?mensaje=Gasto Eliminado";
@@ -20,7 +21,7 @@ if (!empty($seleccionIds)) {
     }
 }
 elseif(is_numeric($gastoId)) { 
-    $resultado = $rg->eliminarGasto($gastoId);
+    $resultado = $cs->eliminarGasto($gastoId);
 
     if ($resultado) {
         $redirigir = "mostrar_datos.php?mensaje=Gasto Eliminado";

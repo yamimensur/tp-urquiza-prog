@@ -1,12 +1,10 @@
 <?php
 require_once 'clases/Usuario.php';
-
-
-require_once 'clases/ImprimirDatos.php';
+require_once 'clases/Imprimir.php';
 require_once 'clases/RepositorioGastos.php';
-require_once 'clases/ImprimirInforme.php';
-$bd = new RepositorioGastos();
-$grafico = new ImprimirInforme($bd);
+
+
+$grafico = new Imprimir();
 
 // Retomamos la sesión previamente iniciada, y recuperamos el objeto Usuario
 // que contiene los datos del usuario autenticado:

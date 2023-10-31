@@ -1,13 +1,10 @@
 <?php
 
-require_once 'clases/ImprimirDatos.php';
-require_once 'clases/RepositorioGastos.php';
-require_once 'clases/ImprimirInforme.php';
+require_once 'clases/Imprimir.php';
 
-$bd = new RepositorioGastos();
 
-$mostrar_datos = new ImprimirDatos($bd);
-$mostrar_informe = new ImprimirInforme($bd);
+$mostrar= new Imprimir();
+
 ?>
 
 
@@ -37,10 +34,10 @@ $mostrar_informe = new ImprimirInforme($bd);
                 }
                 ?>
                 <div>
-                        <?php $mostrar_datos->mostrarTabla('gastos'); ?>
+                        <?php $mostrar->mostrarDatos('gastos'); ?>
                 </div>
                 <!-- Vamos a enviar por metodo post el ID del gasto para poder eliminarlo. -->
-                <form action="delete_gastos.php" method="post" id="borrarVarios">                        
+                <form action="procesar_borrar_gastos.php" method="post" id="borrarVarios">                        
                         <input type="hidden" name="valoresSeleccionados"  id="valoresSeleccionados">
                         <input type="submit" id="botonBorrar" value="Eliminar gasto" class="btn btn-danger">
                 </form>
@@ -55,7 +52,7 @@ $mostrar_informe = new ImprimirInforme($bd);
                 <button onclick="mostrarInforme()" class="btn btn-info mt-4 mb-2">Mostrar Informe</button>
                 <button onclick="ocultarInforme()" id="btnOcultar" class="btn btn-secondary mt-4 mb-2">Ocultar</button>
                 <div id="informe">
-                        <?php $mostrar_informe->mostrarTabla('gastos'); ?>
+                        <?php $mostrar->mostrarInforme('gastos'); ?>
                 </div>
         </div>
         <script src="scripts/borrarVariosGastos.js"> </script>

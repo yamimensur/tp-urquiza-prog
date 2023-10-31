@@ -3,15 +3,9 @@ require_once 'RepositorioGastos.php';
 
 class FiltrarTabla {
 
-    private $bd;
-    public function __construct($bd)
-    {
-        $this->bd = $bd;
-    }
-
 public function filtrarCategoria($filtro) {
-
-     $resultado = $this->bd->filtrar($filtro);
+     $rg=new RepositorioGastos();
+     $resultado = $rg->filtrar($filtro);
 
     if ($resultado->num_rows > 0) {
 
