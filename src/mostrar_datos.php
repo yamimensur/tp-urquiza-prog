@@ -34,6 +34,12 @@ $mostrar= new Imprimir();
                 }
                 ?>
                 <div>
+                        <?php $mostrar->mostrarDatosUsuario(); ?>
+                </div>
+
+                <button onclick="mostrarTablaGeneral()" class="btn btn-info mt-4 mb-2">Ver los gastos de toda la familia</button>
+                <button onclick="ocultarTablaGeneral()" id="btnOcultar2" class="btn btn-secondary mt-4 mb-2">Ocultar</button>
+                <div id="Datos">
                         <?php $mostrar->mostrarDatos('gastos'); ?>
                 </div>
                 <!-- Vamos a enviar por metodo post el ID del gasto para poder eliminarlo. -->
@@ -58,6 +64,8 @@ $mostrar= new Imprimir();
         <script src="scripts/borrarVariosGastos.js"> </script>
         <script async src="scripts/ocultarInforme.js"></script>
         <script async src="scripts/mostrarInforme.js"></script>
+        <script async src="scripts/ocultarTablaGeneral.js"></script>
+        <script async src="scripts/mostrarTablaGeneral.js"></script>
         <script  src="scripts/alertaBorrarGastos.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>

@@ -42,6 +42,13 @@ class RepositorioGastos
         return self::$conexion->query($q);
     }
 
+    public function consultarTablaUsuario($id){
+        $q = "SELECT * FROM gastos WHERE id_usuario LIKE $id ";
+        $resultado = $this->query($q);
+
+        return $resultado;
+
+    }
     public function consultarTabla($nombreTabla)
     {
         $q = "SELECT $nombreTabla.*, usuarios.nombre_usuario
